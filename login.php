@@ -49,9 +49,9 @@
                 $user_city_id = $_POST['user_city_id'];
                 $user_name = $_POST['user_name'];
                 $user_password = encryptPassword($_POST['user_password']);
-                $created_admin_id = $_SESSION['admin_user_id'];
+                
                 $created_at = date("Y-m-d h:i:s");
-                  $sql = "INSERT INTO users (`user_full_name`, `user_email`, `user_address`, `user_city_id`, `user_name`, `user_password`, `created_admin_id`, `created_at`, `status`) VALUES ('$user_full_name', '$user_email', '$user_address', '$user_city_id', '$user_name', '$user_password', '$created_admin_id', '$created_at', 0)";
+                  $sql = "INSERT INTO users (`user_full_name`, `user_email`, `user_address`, `user_city_id`, `user_name`, `user_password`,  `created_at`, `status`) VALUES ('$user_full_name', '$user_email', '$user_address', '$user_city_id', '$user_name', '$user_password', '$created_at', 0)";
                 if($conn->query($sql) === TRUE){
                    echo "<script type='text/javascript'>alert('Data Added Successfully');window.location='login.php'</script>";
                 } else {
