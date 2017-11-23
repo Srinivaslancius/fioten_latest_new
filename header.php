@@ -80,15 +80,18 @@
 								<a href="javascript:;">Products<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu">
 									<?php $getCategory = getDataFromTables('categories','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
-									<?php while($getCat = $getCategory->fetch_assoc()) {  ?>
-
+									<?php while($getCat = $getCategory->fetch_assoc()) { 
+											$getCat1 = $getCat['id'];
+									 ?>
+												
 										<li>
 											<a href="brands.php?catId=<?php echo $getCat['id']; ?>"><?php echo $getCat['category_name']; ?></a>
-											<?php $getSubCat = getDataFromTables('sub_categories','0','category_id',$getCat['id'],$activeStatus=NULL,$activeTop=NULL);  ?>
+											<?php $sql5 = "SELECT * FROM  sub_categories WHERE status = 0 AND category_id = '$getCat1' ";
+												$getSubCat = $conn->query($sql5);  ?>
 											<ul class="sub-menu">
 												<?php while($getSubCatDet = $getSubCat->fetch_assoc()) {  ?>
 												<li>
-													<a href="products.php?subCatId=<?php echo $getSubCatDet['id']; ?>"><?php echo $getSubCatDet['sub_category_name']; ?></a>
+													<a href="products.php?catId=<?php echo $getSubCatDet['category_id']; ?>&subCatId=<?php echo $getSubCatDet['id']; ?>"><?php echo $getSubCatDet['sub_category_name']; ?></a>
 													<?php $getSubSubCat = getDataFromTables('sub_sub_categories','0','sub_category_id',$getSubCatDet['id'],$activeStatus=NULL,$activeTop=NULL);  ?>
 													<!-- <ul class="sub-menu">
 														<?php while($getSubSubDat = $getSubSubCat->fetch_assoc()) {  ?>

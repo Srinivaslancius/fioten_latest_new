@@ -61,7 +61,7 @@
             <div class="container">
                 <ul class="list-inline">
                     <li><a href="#">Home</a></li>
-                    <li>Aboout us</li>
+                    <li>About us</li>
                 </ul>
             </div>
         </div>

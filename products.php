@@ -49,11 +49,14 @@
         
         <!-- inner page banner END -->
         <!-- Breadcrumb row -->
+        <?php $id = $_GET['catId']; $getCategory = getDataFromTables('categories','0','id',$id,$activeStatus=NULL,$activeTop=NULL); $getCat = $getCategory->fetch_assoc();  ?>
+        <?php $id = $_GET['subCatId']; $getSubCategory = getDataFromTables('sub_categories','0','id',$id,$activeStatus=NULL,$activeTop=NULL); $getSubCat = $getSubCategory->fetch_assoc();  ?>
         <div class="breadcrumb-row">
             <div class="container">
                 <ul class="list-inline">
                     <li><a href="#">Home</a></li>
-                    <li>Aboout us</li>
+                    <li><?php echo $getCat['category_name']; ?></li>
+                    <li><?php echo $getSubCat['sub_category_name']; ?></li>
                 </ul>
             </div>
         </div>
@@ -74,7 +77,7 @@
                             </div>
                             <div class="content_data">
                                 <p><?php echo $getPro['product_name'];?></p>
-                                <p><span style="text-decoration: line-through;">Rs. <?php echo $getPro['product_price'];?></span> <b>Rs. <?php echo $getPro['selling_price'];?></b><span class="pull-right"><a href="product_details.php?proId=<?php echo $getPro['id']; ?>"class="site-button padd613">Details</a></span></p>
+                                <p><span style="text-decoration: line-through;">$. <?php echo $getPro['product_price'];?></span> <b>$. <?php echo $getPro['selling_price'];?></b><span class="pull-right"><a href="product_details.php?proId=<?php echo $getPro['id']; ?>"class="site-button padd613">Details</a></span></p>
                             </div>
                         </div>
                     </div>   

@@ -192,12 +192,15 @@ if (!isset($_POST['submit']))  {
                       </label>
                       <a style="cursor:pointer" id="add_more" class="add_field_button">Add More Fields</a>
                   </div> -->
-
-                    <div id="formdiv">                   
-                          <div id="filediv"><input required name="product_images[]" accept="image/*" type="file" id="file" /></div><br/>               
-                         <!--  <input type="button" id="add_more" class="upload" value="Add More Files"/> -->                                               
-                    </div>
-
+                  <div class="form-group">
+                    <label for="form-control-4" class="control-label">Product Image&nbsp;&nbsp;&nbsp;</label>
+                    <img id="output" height="100" width="100"/>
+                    <label class="btn btn-default file-upload-btn">
+                      Choose file...
+                        <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="product_images[]" id="file"  onchange="loadFile(event)"  multiple="multiple" required >
+                      </label>
+                  </div>
+                    
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose your status</label>
